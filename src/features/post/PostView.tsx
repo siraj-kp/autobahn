@@ -3,9 +3,10 @@ import { IconButton } from '@mui/material';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, NavLink } from 'react-router-dom';
+import type { PostInterface } from './types';
 
 interface PostViewProps {
-  post: any;
+  post: PostInterface;
 }
 const PostView = (props: PostViewProps) => {
   const { post } = props;

@@ -6,9 +6,10 @@ import {
   fetchPost as fetchPostApi,
   updatePost,
 } from './postApi';
+import type { PostInterface } from './types';
 
 export interface PostState {
-  value: Array<any>;
+  value: Array<PostInterface>;
   status: 'idle' | 'loading' | 'failed';
 }
 
@@ -56,10 +57,10 @@ export const postSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    setPosts: (state, action: PayloadAction<Array<any>>) => {
+    setPosts: (state, action: PayloadAction<Array<PostInterface>>) => {
       state.value = action.payload;
     },
-    addPost: (state, action: PayloadAction<Array<any>>) => {
+    addPost: (state, action: PayloadAction<PostInterface>) => {
       state.value.push(action.payload);
     },
   },
@@ -81,8 +82,8 @@ export const postSlice = createSlice({
 });
 
 export const selectPosts = (state: RootState) => state.posts.value;
-export const selectPost = (id: string) => (state: RootState) =>
-  state.posts.value.find((val) => val.id == id);
+export const selectPost = (id: string | number) => (state: RootState) =>
+  state.posts.value.find((val: PostInterface) => val.id == Number(id));
 
 export const { setPosts, addPost: addPostData } = postSlice.actions;
 

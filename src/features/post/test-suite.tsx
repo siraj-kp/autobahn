@@ -6,7 +6,7 @@ import { postSlice } from './postSllce';
 import { BrowserRouter } from 'react-router-dom';
 
 function render(
-  ui: any,
+  ui: React.ReactElement,
   {
     preloadedState,
     store = configureStore({

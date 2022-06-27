@@ -1,3 +1,5 @@
+import { PostInterface } from './types';
+
 // A mock function to mimic making an async request for data
 export function fetchPosts() {
   return fetch('https://jsonplaceholder.typicode.com/posts').then((res) =>
@@ -11,14 +13,14 @@ export function fetchPost(id: number) {
   );
 }
 
-export function updatePost(id: number, data: any) {
+export function updatePost(id: number, data: PostInterface) {
   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
     method: 'PATCH',
     body: JSON.stringify(data),
   }).then((res) => res.json());
 }
 
-export function addPost(post: any) {
+export function addPost(post: PostInterface) {
   return fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     body: JSON.stringify({

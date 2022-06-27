@@ -11,7 +11,7 @@ export const handlers = [
 ];
 
 test('should return the initial state', () => {
-  expect(postSlice.reducer(undefined, {})).toEqual({
+  expect(postSlice.reducer(undefined, {} as any)).toEqual({
     value: [],
     status: 'idle',
   });
