@@ -122,7 +122,11 @@ const Header = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <NavLink to={page.value} style={{ all: 'unset' }}>
+              <NavLink
+                key={page.value}
+                to={page.value}
+                style={{ all: 'unset' }}
+              >
                 <Button
                   key={page.value}
                   onClick={handleCloseNavMenu}

@@ -17,7 +17,7 @@ const PostList = () => {
   const posts = useAppSelector((state) => state.posts);
 
   React.useEffect(() => {
-    if (posts.value.length === 0) dispatch(fetchPosts());
+    dispatch(fetchPosts());
   }, []);
 
   if (posts.status === 'loading') return <>data loading....</>;
@@ -28,7 +28,7 @@ const PostList = () => {
 
       <List component="nav" aria-label="mailbox folders">
         <div className="list__wrapper">
-          {posts
+          {posts && Array.isArray(posts.value)
             ? posts.value.map((d: any) => (
                 <div key={d.id} className="custom__list">
                   <ListItem button>
